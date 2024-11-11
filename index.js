@@ -70,7 +70,7 @@ yargs.command(
         lamports: Math.round(tx_data.amount * LAMPORTS_PER_SOL),
       }));
 
-      let blockhashObj = await SOLANA_CONNECTION.getRecentBlockhash();
+      let blockhashObj = await SOLANA_CONNECTION.getLatestBlockhash();
       tx.recentBlockhash = await blockhashObj.blockhash;
 
       tx.partialSign(SENDER);
@@ -160,7 +160,7 @@ yargs.command(
         Math.round(tx_data.amount * Math.pow(10, tx_data.token_decimals))
       ));
 
-      let blockhashObj = await SOLANA_CONNECTION.getRecentBlockhash();
+      let blockhashObj = await SOLANA_CONNECTION.getLatestBlockhash();
       tx.recentBlockhash = await blockhashObj.blockhash;
 
       tx.partialSign(SENDER);
